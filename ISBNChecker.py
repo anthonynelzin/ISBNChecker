@@ -40,15 +40,15 @@ def check_isbn_10(isbn):
 	# The check digit is 11 minus the remainder of the sum divided by 11
 	check = 11 - (sum%11)
 	
-	# Is the check number is 10, we convert it to X
+	# If the previous operation equals 10, the check digit is X
 	if check == 10:
 		check = "X"
 	
-	# Is the check number is 11, we convert it to 0
+	# If the previous operation equals 11, the check digit is 0
 	if check == 11:
 		check = 0
 		
-	# If the computed check digit equal the provided check digit, we have a valid ISBN-10
+	# If the computed check digit equals the provided check digit, we have a valid ISBN-10
 	if isbn[-1] == str(check):
 		print(isbn + " is a valid ISBN-10 (check number: " + str(check) + ").")
 		return isbn
@@ -60,7 +60,7 @@ def check_isbn_13(isbn):
 	# The check digit has to be excluded
 	digits = list(isbn)[:-1]
 	
-	# Odd-positioned numbers are multiplied by 1, even ones by 3, sand everything is summed together
+	# Odd-positioned numbers are multiplied by 1, even ones by 3, and everything is summed together
 	sum = 0
 	position = 0
 	for digit in digits:
@@ -73,11 +73,11 @@ def check_isbn_13(isbn):
 	# The check digit is 11 minus the remainder of the sum divided by 10
 	check = 10 - (sum%10)
 	
-	# Is the check number is 10, we convert it to 0.
+	# If the previous operation equals 10, the check digit is 0
 	if check == 10:
 		check = 0
 	
-	# If the computed check number equal the last character, we have a valid ISBN-13
+	# If the computed check digit equals the provided check digit, we have a valid ISBN-13
 	if isbn[-1] == str(check):
 		print(isbn + " is a valid ISBN-13 (check number: " + str(check) + ").")
 		return isbn
@@ -92,9 +92,13 @@ def main():
 	isbn = clean_isbn(args.isbn)
 	isbn = check_isbn(isbn)
 	
+	return isbn
+	
 def ISBNChecker(isbn):
 	isbn = clean_isbn(isbn)
 	isbn = check_isbn(isbn)
+	
+	return isbn
 	
 if __name__ == '__main__':
 	main()
