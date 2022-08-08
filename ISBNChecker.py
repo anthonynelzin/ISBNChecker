@@ -13,7 +13,7 @@ import argparse
 # Clean the provided ISBN
 def clean_isbn(isbn):
 	# Remove hyphens and spaces
-	isbn = isbn.replace("-", "").replace(" ", "");
+	isbn = isbn.replace("-", "").replace(" ", "")
 	return isbn
 	
 # Use the appropriate method to check the ISBN
