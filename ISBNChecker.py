@@ -70,7 +70,7 @@ def check_isbn_13(isbn):
 			sum += 3*int(digit)
 		position += 1
 	
-	# The check digit is 11 minus the remainder of the sum divided by 10
+	# The check digit is 10 minus the remainder of the sum divided by 10
 	check = 10 - (sum%10)
 	
 	# If the previous operation equals 10, the check digit is 0
